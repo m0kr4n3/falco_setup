@@ -44,6 +44,11 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: rules
+        
+      - name: debug
+        run: |
+          ls -la;
+          cat rules/custom_rules.yaml
 
       - name: Upload OCI artifacts to GitHub packages
         run: |
