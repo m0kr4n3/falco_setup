@@ -70,7 +70,7 @@ jobs:
              --version ${OCI_ARTIFACT_VERSION} \
              --tag 1.0.0  \
              ${OCI_REGISTRY}/${GITHUB_REPOSITORY}/${OCI_ARTIFACT_NAME}:${OCI_ARTIFACT_VERSION} \
-             ${RULESET_FILE}             
+             ./${RULESET_FILE}             
         env:
           FALCOCTL_REGISTRY_AUTH_BASIC: ${{ env.OCI_REGISTRY }},${{ github.repository_owner }},${{ secrets.GITHUB_TOKEN }}
 
