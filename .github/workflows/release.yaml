@@ -65,7 +65,7 @@ jobs:
       - name: Upload OCI artifacts to GitHub packages
         run: |
              cd rules; \
-             tools/falcoctl/falcoctl registry push \
+             ../tools/falcoctl/falcoctl registry push \
              --config /dev/null \
              --type rulesfile \
              --version ${OCI_ARTIFACT_VERSION} \
