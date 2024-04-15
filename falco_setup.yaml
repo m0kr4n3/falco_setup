@@ -175,7 +175,7 @@ driver:
   # Always set it to false when using Falco with plugins.
   enabled: true
   # -- kind tells Falco which driver to use. Available options: kmod (kernel driver), ebpf (eBPF probe), modern_ebpf (modern eBPF probe).
-  kind: kmod
+  kind: ebpf
   # -- kmod holds the configuration for the kernel module.
   kmod:
     # -- bufSizePreset determines the size of the shared space between Falco and its drivers.
@@ -355,13 +355,14 @@ customRules:
 falcosidekick:
   # -- Enable falcosidekick deployment.
   enabled: true
+  webui:
+    enabled: true
   # -- Enable usage of full FQDN of falcosidekick service (useful when a Proxy is used).
   fullfqdn: false
   # -- Listen port. Default value: 2801
   listenPort: 2801
-  config: {
-      customfields: "user:changeme"
-    }
+  config:
+    customfields: "user:changeme"
 
 ####################
 # falcoctl config  #
@@ -433,7 +434,7 @@ falcoctl:
          - ghcr.io/m0kr4n3/falco_rules/custom-rules:1.0.0
         # -- Directory where the rulesfiles are saved. The path is relative to the container, which in this case is an emptyDir
         # mounted also by the Falco pod.
-        rulesfilesDir: /rules/rules
+        rulesfilesDir: /rulesfiles
         # -- Same as the one above but for the artifacts.
         pluginsDir: /plugins
       follow:
@@ -447,7 +448,7 @@ falcoctl:
         # with the running Falco instance.
         falcoversions: http://localhost:8765/versions
         # -- See the fields of the artifact.install section.
-        rulesfilesDir: /rules/rules
+        rulesfilesDir: /rulesfiles
         # -- See the fields of the artifact.install section.
         pluginsDir: /plugins
 
