@@ -3,7 +3,8 @@
   condition: >
     evt.type = execve and
     evt.dir = < and 
-    container.id != host
+    container.id != host and
+    k8s.ns.name = "default"
   output_fields: [
     namespace,
     pod_name,
