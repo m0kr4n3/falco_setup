@@ -1,14 +1,14 @@
 - rule: new_process_created
   desc: notice new process creation
   condition: >
-    spawned_process and container
+    evt.type = execve
   output_fields: [
     namespace,
     pod_name,
     container_id,
     container_name,
     user.name,
-    process.cmdline,
+    process.cmdline
     process.pid,
     evt.time
   ]
