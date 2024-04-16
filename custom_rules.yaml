@@ -13,4 +13,4 @@
     evt.time
   ]
   priority: CRITICAL
-  tags: [falco]
+  tags: [FALCO]
