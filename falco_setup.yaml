@@ -355,14 +355,15 @@ customRules:
 falcosidekick:
   # -- Enable falcosidekick deployment.
   enabled: true
-  webui:
-    enabled: true
   # -- Enable usage of full FQDN of falcosidekick service (useful when a Proxy is used).
   fullfqdn: false
   # -- Listen port. Default value: 2801
   listenPort: 2801
   config:
-    customfields: "user:changeme"
+    debug: true
+    rabbitmq:
+      url: "amqp://rabbitmq:5672/" # Rabbitmq URL, if not empty, Rabbitmq output is enabled
+      queue: "exchange" # Rabbitmq Queue name
 
 ####################
 # falcoctl config  #
@@ -489,9 +490,7 @@ falco:
   # intended.
   # -- The location of the rules files that will be consumed by Falco.
   rules_file:
-    - /etc/falco/falco_rules.yaml
-    - /etc/falco/falco_rules.local.yaml
-    - /etc/falco/rules.d
+    - /etc/falco/custom_rules.yaml
 
   # [Experimental] `rule_matching`
   #

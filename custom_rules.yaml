@@ -1,15 +1,16 @@
-- rule: shell_in_container
-  desc: notice shell activity within a container
+- rule: new_process_created
+  desc: notice new process creation
   condition: >
-    evt.type = execve and 
-    evt.dir = < and 
-    container.id != host and 
-    (proc.name = bash or
-    proc.name = ksh or
-    proc.name = sh)
-  output: >
-    shell in a container
-    (user=%user.name container_id=%container.id container_name=%container.name 
-    shell=%proc.name parent=%proc.pname cmdline=%proc.cmdline)    
-  priority: WARNING
-  tags: [trigger-checkpoint]
+    spawned_process and container
+  output_fields: [
+    namespace,
+    pod_name,
+    container_id,
+    container_name,
+    user.name,
+    process.cmdline,
+    process.pid,
+    evt.time
+  ]
+  priority: CRITICAL
+  tags: [falco]
