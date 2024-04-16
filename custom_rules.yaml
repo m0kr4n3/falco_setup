@@ -12,6 +12,7 @@
     process.pid,
     evt.time
   ]
-  output: "Anormal process created in namespace=%namespace pod_name=%pod_name container_id=%container_id container_name=%container_name user=%user.name process=%process.cmdline pid=%process.pid time=%evt.time"
+  output: >
+    Anormal process created in (namespace=%namespace pod_name=%pod_name container_id=%container_id container_name=%container_name user=%user.name process=%process.cmdline pid=%process.pid time=%evt.time)
   priority: CRITICAL
   tags: [FALCO]
