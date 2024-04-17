@@ -18,6 +18,6 @@
   output: >
     anormal process created
     (user=%user.name container_id=%container.id container_name=%container.name 
-    shell=%proc.name parent=%proc.pname cmdline=%proc.cmdline)    
+    pid=%proc.pid cmdline=%proc.cmdline)    
   priority: CRITICAL
   tags: [FALCO]
