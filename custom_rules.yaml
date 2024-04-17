@@ -11,8 +11,8 @@
     container_id,
     container_name,
     user.name,
-    process.cmdline
-    process.pid,
+    proc.cmdline
+    proc.pid,
     evt.time
   ]
   output: >
