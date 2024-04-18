@@ -5,6 +5,7 @@
     evt.dir = < and 
     container.id != host and
     k8s.ns.name = default
+    proc.name != "kill"
   output_fields: [
     namespace,
     pod_name,
