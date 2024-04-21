@@ -20,4 +20,4 @@
     (user=%user.name container_id=%container.id container_name=%container.name 
     pid=%proc.vpid cmdline=%proc.cmdline)    
   priority: CRITICAL
-  tags: [FALCO]
+  tags: [FALCO, new_process_created]
