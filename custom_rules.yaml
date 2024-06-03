@@ -7,6 +7,7 @@
     k8s.ns.name = default and
     proc.name != "kill" and
     (not proc.cmdline contains "lynis") and
+    (not proc.cmdline contains "tar") and
     proc.env["lynis"] != "true"
   output_fields: [
     namespace,
