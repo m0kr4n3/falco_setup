@@ -5,7 +5,9 @@
     evt.dir = < and 
     container.id != host and
     k8s.ns.name = default and
-    proc.name != "kill"
+    proc.name != "kill" and
+    proc.cmdline contains "lynis" and
+    proc.env[lynis] != "true"
   output_fields: [
     namespace,
     pod_name,
