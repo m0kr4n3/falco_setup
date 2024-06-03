@@ -7,7 +7,7 @@
     k8s.ns.name = default and
     proc.name != "kill" and
     (not proc.cmdline contains "lynis") and
-    proc.env[lynis] != "true"
+    proc.env["lynis"] != "true"
   output_fields: [
     namespace,
     pod_name,
@@ -15,7 +15,8 @@
     container_name,
     user.name,
     proc.cmdline,
-    proc.pid
+    proc.pid,
+    proc.env
   ]
   output: >
     anormal process created
