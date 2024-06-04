@@ -8,6 +8,7 @@
     proc.name != "kill" and
     (not proc.cmdline contains "lynis") and
     (not proc.cmdline contains "tar") and
+    (not proc.cmdline contains "test") and
     proc.env["lynis"] != "true"
   output_fields: [
     namespace,
@@ -16,12 +17,11 @@
     container_name,
     user.name,
     proc.cmdline,
-    proc.pid,
-    proc.env
+    proc.pid
   ]
   output: >
     anormal process created
     (user=%user.name container_id=%container.id container_name=%container.name 
-    pid=%proc.pid cmdline=%proc.cmdline env=%proc.env) 
+    pid=%proc.pid cmdline=%proc.cmdline) 
   priority: CRITICAL
   tags: [FALCO, new_process_created]
