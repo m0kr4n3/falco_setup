@@ -5,7 +5,7 @@
     evt.dir = < and 
     container.id != host and
     k8s.ns.name = default and
-    proc.name != "kill" and
+    proc.name != "ps" and
     (not proc.cmdline contains "lynis") and
     (not proc.cmdline contains "tar") and
     (not proc.cmdline contains "test") and
