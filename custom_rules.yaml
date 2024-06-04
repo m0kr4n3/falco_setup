@@ -7,6 +7,8 @@
     k8s.ns.name = default and
     proc.name != "ps" and
     proc.name != "git"  and
+    proc.name != "logrotate" and
+    proc.name != "sleep" and
     (not proc.cmdline contains "lynis") and
     (not proc.cmdline contains "tar") and
     (not proc.cmdline contains "test") and
