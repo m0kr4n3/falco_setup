@@ -18,11 +18,11 @@
     user.name,
     proc.cmdline,
     proc.pid,
-    proc.ppid
+    proc.pvpid
   ]
   output: >
     anormal process created
     (user=%user.name container_id=%container.id container_name=%container.name 
-    pid=%proc.pid cmdline=%proc.cmdline, ppid=%proc.ppid) 
+    pid=%proc.pid cmdline=%proc.cmdline, pvpid=%proc.pvpid) 
   priority: CRITICAL
   tags: [FALCO, new_process_created]
