@@ -6,7 +6,7 @@
     container.id != host and
     k8s.ns.name = default and
     proc.name != "ps" and
-    proc.name != "git"  and
+    (not proc.cmdline contains "git") and
     proc.name != "logrotate" and
     proc.name != "sleep" and
     (not proc.cmdline contains "lynis") and
