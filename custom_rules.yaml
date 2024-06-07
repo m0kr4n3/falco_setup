@@ -4,6 +4,7 @@
     evt.type = execve and
     evt.dir = < and 
     container.id != host and
+    container.name != "http-intercepter"
     k8s.ns.name = default and
     proc.name != "ps" and
     (not proc.cmdline contains "git") and
