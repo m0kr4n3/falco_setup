@@ -5,6 +5,7 @@
     evt.dir = < and 
     container.id != host and
     container.name != "http-intercepter" and
+    container.name != "ssh-server" and
     k8s.ns.name = default and
     proc.name != "ps" and
     (not proc.cmdline contains "git") and
